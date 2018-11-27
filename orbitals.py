@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import cairo, Image
+import cairo
+from PIL import Image
 import numpy as np
 from numpy import sin, cos, pi, arctan2, square,sqrt, logical_not,\
                   linspace, array, zeros
@@ -10,14 +11,14 @@ from time import time
 
 #np.random.seed(1)
 
-COLOR_PATH = 'color/dark_cyan_white_black.gif'
+COLOR_PATH = 'color/mercy.png'
 
 PI = pi
 TWOPI = pi*2.
 
 SIZE = 10000 # size of png image
 NUM = 400 # number of nodes
-MAXFS = 6 # max friendships pr node
+MAXFS = 12 # max friendships pr node
 
 BACK = 1. # background color 
 GRAINS = 30
@@ -62,9 +63,9 @@ class Render(object):
   def __init__(self):
 
     self.__init_cairo()
-    #self.__get_colors(COLOR_PATH)
-    self.colors = [(0,0,0)]
-    self.n_colors = 1
+    self.__get_colors(COLOR_PATH)
+    #self.colors = [(0,0,0)]
+    #self.n_colors = 1
 
   def __init_cairo(self):
 
